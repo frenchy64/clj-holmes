@@ -10,10 +10,8 @@
              :print (fn [_ _ _ new-state]
                       (-> @bar (pr/tick new-state) pr/print))))
 
-(defn count-progress-size [files rules]
-  (let [amount-of-files (count files)
-        amount-of-rules (count rules)
-        total-tasks (* amount-of-files amount-of-rules)]
-    (if (zero? total-tasks)
+(defn count-progress-size [files]
+  (let [amount-of-files (count files)]
+    (if (zero? amount-of-files)
       1
-      (->> total-tasks (/ 100) float))))
+      (->> amount-of-files (/ 100) float))))
