@@ -35,7 +35,7 @@
                  [org.flatland/ordered "1.15.10"]
                  [progrock "0.1.2"]
                  [org.clojars.clj-holmes/shape-shifter "0.3.6"]
-                 [borkdude/edamame "0.0.15"]]
+                 [borkdude/edamame "1.4.27"]]
             
   :profiles {:dev     {:dependencies [[org.clojure/test.check "1.1.1"]]
                        :plugins      [[lein-shell "0.5.0"]]}
