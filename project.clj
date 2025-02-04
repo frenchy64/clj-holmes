@@ -51,6 +51,5 @@
                                "--diagnostics-mode" "--report-unsupported-elements-at-runtime" "--verbose"
                                "--allow-incomplete-classpath"]
             "project-version" ["shell" "echo" "${:version}"]
-            "clj-holmes"      ["run" "-m" "clj-holmes.entrypoint"]
             "lint"            ["do" ["cljfmt" "check"] ["kibit"] ["nsorg"] ["eastwood" "{:namespaces [:source-paths]}"]]
             "lint-fix"        ["do" ["cljfmt" "fix"] ["kibit" "--replace"] ["nsorg" "--replace"]]})

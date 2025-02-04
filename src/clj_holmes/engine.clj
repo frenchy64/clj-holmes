@@ -10,7 +10,7 @@
   (let [result (->> rules
                     (pmap #(rules.processor/init! code-structure %))
                     (filterv :result))]
-    (swap! progress/counter (partial + progress-size))
+    (swap! progress/counter + progress-size)
     result))
 
 (defn scan* [opts]
@@ -19,7 +19,7 @@
         progress-size (progress/count-progress-size code-structures)
         scans-results (->> code-structures
                            (pmap #(check-rules-in-code-structure % rules progress-size))
-                           (reduce concat))
+                           (reduce into []))
         scan-result-output (output/output scans-results opts)]
     scan-result-output))
 
