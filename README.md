@@ -5,7 +5,7 @@ A CLI SAST (Static application security testing) tool which was built with the i
 # Calling from Clojure CLI
 
 ```
-clojure -Srepro -Sdeps '{:deps {org.clojars.clj-holmes/clj-holmes {:git/url "https://github.com/frenchy64/clj-holmes.git" :git/sha "5ebbde9c644290b2241836e3acb9ed70528f5f7a"}}}' -M -m clj-holmes.main
+clojure -Srepro -Sdeps '{:override-deps {org.clojars.clj-holmes/clj-holmes {:git/url "https://github.com/frenchy64/clj-holmes.git" :git/sha "5ebbde9c644290b2241836e3acb9ed70528f5f7a"}}}' -M -m clj-holmes.main
 ```
 
 # Installation
