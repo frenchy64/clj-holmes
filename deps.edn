@@ -6,7 +6,9 @@
         org.martinklepsch/clj-http-lite {:mvn/version "0.4.3"}
         clj-commons/clj-yaml {:mvn/version "0.7.107" :exclusions [org.flatland/ordered]}
         org.flatland/ordered {:mvn/version "1.15.10"}
-        progrock/progrock {:mvn/version "0.1.2"}
+        ;progrock/progrock {:mvn/version "0.1.2"}
+        progrock/progrock {:git/url "https://github.com/frenchy64/progrock"
+                           :git/sha "8cae007034cdb7a4e1b91d47cb3a0bdda56dd687"}
         org.clojars.clj-holmes/shape-shifter {:mvn/version "0.3.6"}
         borkdude/edamame {:mvn/version "1.4.27"}}
  :aliases {:dev {:extra-paths ["test"]}

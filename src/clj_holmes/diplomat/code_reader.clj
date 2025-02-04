@@ -24,13 +24,12 @@
   (let [ignored-paths (prepare-ignored-paths ignored-paths)]
     (reify FileFilter
       (accept [_ f]
-        (if (nil? ignored-paths)
-          true
-          (let [filepath (.getAbsolutePath f)]
-            (->> ignored-paths
-                 (map (fn [pattern]
-                        (re-find pattern filepath)))
-                 (every? nil?))))))))
+        (let [filepath (.getAbsolutePath f)
+              accept? (not-any? #(re-find % filepath) ignored-paths)]
+          (if accept?
+            (println "Accepted" filepath)
+            (println "Ignored" filepath))
+          accept?)))))
 
 (defn ^:private list-files-in-directory [^FileFilter file-filter ^String scan-path]
   (let [file (File. scan-path)]
@@ -51,4 +50,6 @@
     (->> all-files-and-directories
          (filter clj-file?)
          (pmap file-sanitize)
-         (pmap file->code-structure))))
+         doall
+         (pmap file->code-structure)
+         doall)))
